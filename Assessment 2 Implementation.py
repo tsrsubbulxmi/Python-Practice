@@ -46,11 +46,12 @@ s="Equivalent Currency value for {0} INR : {1} {2}" # use of string formatting
 eq_cur_val= lambda a,b:a/b     #lambda function for getting the Equivalent currency value for INR
 print(s.format(amt,eq_cur_val(amt,currency_value),currency_name))
 
+#=======================i/p======================================
+# Enter country name from (UK,USA,MEXICO,AUSTRALIA):USA                                                                                            
+# Enter amount in INR:700000     
 
-
-
-
-# Enter country name from (UK,USA,MEXICO,AUSTRALIA):USA                                                                                    
+#=======================o/p======================================
+# Enter country name from (UK,USA,MEXICO,AUSTRALIA):USA                                                                                            
 # Enter amount in INR:700000                                                                                                               
                                                                                                                                          
 # Country: USA                                                                                                                             
