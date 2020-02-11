@@ -25,7 +25,7 @@ def check(n,num_list,choice):
             
 l=[]
 while True:
-    a=random.randrange(50)			#getting random numbers of range 1-50
+    a=random.randrange(50)			#getting random numbers of range 0-50
     if a not in l and len(l)<=10:		#since the elements should not repeat,checking if the number already exists
         l.append(a)
     elif len(l)>10:
