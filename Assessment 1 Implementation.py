@@ -10,37 +10,37 @@
 # op: Yeah... right...!!!
 import random
 def check(n,num_list,choice):
-    if n == choice:
+    if n == choice:			#if the chosen number is correct
         print("Yeah...! You guessed it correctly!!!Congrats!!!")
-        return True
+        return 1
     else:
-        pos1=l.index(choice)
-        pos2=l.index(n)
-        if abs(pos1-pos2)<=3:
+        pos1=l.index(choice)		#getting the index of randomly chosen number
+        pos2=l.index(n)			#getting the index of user chosen number
+        if abs(pos1-pos2)<=3:		#if they are 1-3 indices away
             print("You are closer to success!!!")
             return 0
-        else:
+        else:				#if they are more than 3 index
             print('You are far away from the target!!!')
             return 0
             
 l=[]
 while True:
-    a=random.randrange(50)
-    if a not in l and len(l)<=10:
+    a=random.randrange(50)			#getting random numbers of range 1-50
+    if a not in l and len(l)<=10:		#since the elements should not repeat,checking if the number already exists
         l.append(a)
     elif len(l)>10:
         break
-s=random.choice(l)
+s=random.choice(l)				#selecting a random number from the list
 x=2
 for i in range(0,3):
     if x==0:
-        print('Try again')
-    elif x==1:
+        print('Try again')			#if the number is not selected correctly
+    elif x==1:					
 	break
     else:
         print("Hello There!!! Could you select one number from the list:",l)
     a=int(input())
-    x=check(a,l,s)
+    x=check(a,l,s)				#calling the check method to check if the chosen number is the randomly picked one or not
     
 if x==0:
     print('Sorry better luck next time')
