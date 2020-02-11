@@ -8,13 +8,77 @@
 # op: Sorry!! But you are close to that.. Try again
 # ip: 21
 # op: Yeah... right...!!!
-
+import random
+def check(n,num_list,choice):
+    if n == choice:
+        print("Yeah...! You guessed it correctly!!!Congrats!!!")
+        return True
+    else:
+        pos1=l.index(choice)
+        pos2=l.index(n)
+        if abs(pos1-pos2)<=3:
+            print("You are closer to success!!!")
+            return 0
+        else:
+            print('You are far away from the target!!!')
+            return 0
+            
+l=[]
+while True:
+    a=random.randrange(50)
+    if a not in l and len(l)<=10:
+        l.append(a)
+    elif len(l)>10:
+        break
+s=random.choice(l)
+x=2
+for i in range(0,3):
+    if x==0:
+        print('Try again')
+    elif x==1:
+	break
+    else:
+        print("Hello There!!! Could you select one number from the list:",l)
+    a=int(input())
+    x=check(a,l,s)
+    
+if x==0:
+    print('Sorry better luck next time')
+elif x==1:
+    print('Enjoy your win!!!@@!!!')
 
 #====================================i/p========================================
 #
 
 #====================================o/p========================================
-#
+#Hello There!!! Could you select one number from the list: [40, 44, 45, 20, 14, 12, 8, 42, 9, 32, 15]                          
+# 14                                                                                                                            
+# You are far away from the target!!!                                                                                           
+# Try again                                                                                                                     
+# 8     
+# You are closer to success!!!                                                                                                  
+# Try again                                                                                                                     
+# 9                                                                                                                             
+# You are closer to success!!!                                                                                                  
+# Sorry better luck next time 
+
+#====================================o/p========================================
+
+# Hello There!!! Could you select one number from the list: [10, 29, 33, 35, 25, 37, 19, 21, 49, 40, 44]                        
+# 33                                                                                                                            
+# Yeah...! You guessed it correctly!!!Congrats!!!                                                                               
+# Enjoy your win!!!@@!!! 
+
+
+#====================================o/p========================================
+# Hello There!!! Could you select one number from the list: [49, 44, 3, 25, 15, 14, 48, 47, 45, 0, 35]                          
+# 45                                                                                                                            
+# You are closer to success!!!                                                                                                  
+# Try again                                                                                                                     
+# 0          
+# Yeah...! You guessed it correctly!!!Congrats!!!                                                                               
+# Enjoy your win!!!@@!!!
+
 
 
 
