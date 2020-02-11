@@ -13,28 +13,30 @@ print((lambda x:x**2)(2))
 
 #===============================(3)==================================================
 
-#---------------------in python 2.7 shell----------------------------check
+
 l1=[1,2,3,4]
-l2=[5,6,7,8]
+l2=[5,6,7]
 l=list(map(lambda a,b:a+b,l1,l2))
+print(l)    
+#Traceback (most recent call last):
+#  File "C:/Users/subbu.l.ravikumar/PycharmProjects/10_qn_sh/sum_of_digits.py", line 11, in <module>
+#    l=list(map(lambda a,b:a+b,l1,l2))
+#  File "C:/Users/subbu.l.ravikumar/PycharmProjects/10_qn_sh/sum_of_digits.py", line 11, in <lambda>
+#    l=list(map(lambda a,b:a+b,l1,l2))
+#TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
 
-# Traceback (most recent call last):
-#   File "<pyshell#8>", line 1, in <module>
-#     l2=list(map(lambda a,b:a+b,l,l1))
-#   File "<pyshell#8>", line 1, in <lambda>
-#     l2=list(map(lambda a,b:a+b,l,l1))
-# TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
-# >>> l2=[1,2,3,4,5]
-# >>> l3=list(map(lambda a,b:a+b,l,l2))
 
-# Traceback (most recent call last):
-#   File "<pyshell#10>", line 1, in <module>
-#     l3=list(map(lambda a,b:a+b,l,l2))
-#   File "<pyshell#10>", line 1, in <lambda>
-#     l3=list(map(lambda a,b:a+b,l,l2))
-# TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
-# >>> 
+l1=[1,2,3,4]
+l2=[5,6,7]
+l=list(map(lambda a,b:a+b,l2,l1))
+print(l)  
 
+#Traceback (most recent call last):
+#  File "C:/Users/subbu.l.ravikumar/PycharmProjects/10_qn_sh/sum_of_digits.py", line 11, in <module>
+#    l=list(map(lambda a,b:a+b,l2,l1))
+#  File "C:/Users/subbu.l.ravikumar/PycharmProjects/10_qn_sh/sum_of_digits.py", line 11, in <lambda>
+#    l=list(map(lambda a,b:a+b,l2,l1))
+#TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 
 
 #===============================()==================================================
