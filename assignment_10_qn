@@ -1,0 +1,95 @@
+
+
+import functools
+s = 'aasd785aqr75f78'
+l = list(filter(lambda a: a.isdigit(), s))
+l = list(map(lambda a: int(a), l))
+print(l)
+sum_of_d = functools.reduce(lambda a, b : a+b, l)
+print(sum_of_d)
+
+
+email=['abc@gmail.com','def@xyz.com','ghdf@hotmail.com','subbu.@outlook.com','as@gmail.com','u.@hotmail.com']
+for i in email:
+    op=re.search(r'([a-z|A-Z]+)([@])([gmail\.com]{9}|[hotmail\.com]{11}|[yahoo\.com]{9}|[outlook\.com]{11})',i)
+    if op:
+        print(op.group(0))
+		
+		
+import re
+email=['abc.@gmail.com','def@xyz.com','ghdf@hotmail.com','subbu.@outlook.com','as@gmail.com','u.@hotmail.com']
+for i in email:
+    op=re.search(r'([a-z|A-Z][a-z|A-Z]+)(\.)([@])([gmail\.com]{9}|[hotmail\.com]{11}|[yahoo\.com]{9}|[outlook\.com]{11})',i)
+    if op:
+        print(op.group(0))
+
+		
+s='ashafsnfnwsgwjnwnefqaa'
+x='asf'
+if len(x)==3:
+    cnt=0
+    for i in x:
+        if i in s:
+            cnt=cnt+1
+    if len(x)==cnt:
+        print('The substring is available in the string')
+    else:
+        print('The substring is not available in the string')
+elif len(x)<3:
+    print('The substring is too small')
+else:
+    print('The substring is too large')
+	
+	
+vowels={'a':1,'e':2,'i':3,'o':4,'u':5}
+s='madmeesicqiqihduqwqwo'
+sum_of_vowels=0
+for i in s:
+    if i in vowels.keys():
+        sum_of_vowels=sum_of_vowels+vowels.get(i)
+print(sum_of_vowels)
+
+
+a=int(input())
+if a>=0:
+    org=a
+    rev=0
+    while(a>0):
+        rem=a%10
+        rev=(rev*10)+rem
+        a=int(a/10)
+    if org==rev:
+        print(org,'is a palindrome')
+    else:
+        print(org,'is not a palindrome')
+else:
+    print(a,'is not a palindrome')
+	
+	
+s='AZazbuGuAgiASuNJg'
+for i in s:
+    if ord(i)>=97:
+        a=ord(i)-32
+        print(chr(a),end='')
+    elif ord(i)>=65 and ord(i)<=90:
+        a=ord(i)+32
+        print(chr(a),end='')
+		
+		
+l=['adae','wqef','effg','anudb','aqdwa']
+ch=[]
+dic={}
+for i in l:
+    if i[2] not in ch:
+        ch.append(i[2])
+    dic[i]=i[2]
+ch.sort()
+s=[]
+for i in ch:
+    for k,v in dic.items():
+        if i==v:
+            s.append(k)
+for i in s:
+    print(i)
+	
+	
