@@ -103,3 +103,22 @@ for i in range(0,5):
     for k in range(0,i+1):
         print(end='* ')
     print('\n')
+
+
+a='abckefunefghijklueffdefghiihk'
+x=''
+l=[]
+for i in range(0,len(a)-1):		
+    if ord(a[i+1])-ord(a[i])==1:		#checks i the characters next to each other are in sequence
+        x=x+a[i]
+    else:
+        x=x+a[i]
+        l.append(x)
+        x=''
+print(l)
+cnt=0
+for i in range(0,len(l)):			#checks the highest length of the substring 
+    if len(l[i])>cnt:
+        cnt=len(l[i])
+        k=l.index(l[i])
+print(l[k])
