@@ -122,3 +122,22 @@ for i in range(0,len(l)):			#checks the highest length of the substring
         cnt=len(l[i])
         k=l.index(l[i])
 print(l[k])
+
+
+x='({)}[]}'
+dic={'{':'}','[':']','(':')'}
+l={}
+cnt=1
+for i in range(0,len(x)):
+    for j in range(i+1,len(x)):
+        if x[i]==x[j] and x[i] not in l.keys():         #counting he occurrence of each character
+            cnt=cnt+1
+            l[x[i]]=cnt
+    cnt=1        
+for k,v in dic.items():
+    if l.get(k)==l.get(v):                              #checking for balanced position
+        if (x.index(v)-x.index(k))>0 and (x.index(v)-x.index(k))%2!=0:
+            continue
+        else:
+            print('Not balanced')
+            break
