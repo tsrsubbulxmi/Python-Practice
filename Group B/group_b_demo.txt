@@ -1,0 +1,3 @@
+English,Maths,Physics,Biology,Chemistry
+Shakespeare plays:Statistics,Profit loss,Differentiation,Integration:Newton's law,SI Units,Archimede's principle:Digestive system,Ecosystem,Organs:Molecules and atoms,Chemical bonding
+K. Kumar,A . Mishra:SK. Sharma,R. Suruthi,K. Ajay:C. Varma:A. Suresh,R. Kanth:N. Simma
