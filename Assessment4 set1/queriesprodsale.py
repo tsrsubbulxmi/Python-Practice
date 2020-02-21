@@ -17,25 +17,33 @@ class MyError(Exception):
 
 class Queries:
     def q1(self):
-        cursor.execute('select product_name,product_code,price from(select product_name,product_code,price,sum(product_quantity),rank()over (order by sum(product_quantity)desc)r from product p join sale s on p.id=s.product_id group by product_id)as ra where r=1')
-        r = cursor.fetchall()
-        l = ['product_name', 'product_code', 'price']
-        print(l[0], l[1], l[2])
-        for i in r:
-            print(i[0], i[1], i[2])
-            logger.info(str(datetime.now())  + " maximum - sold product with product details")
+        try:
+            if cursor.execute('select product_name,product_code,price from(select product_name,product_code,price,sum(product_quantity),rank()over (order by sum(product_quantity)desc)r from product p join sale s on p.id=s.product_id group by product_id)as ra where r=1')==null:
+            raise ValueError('There is no record selected')
+            r = cursor.fetchall()
+            l = ['product_name', 'product_code', 'price']
+            print(l[0], l[1], l[2])
+            for i in r:
+                print(i[0], i[1], i[2])
+                logger.info(str(datetime.now())  + " maximum - sold product with product details")
+        except ValueError as e:
+            print(e)
 
     def q2(self):
-        cursor.execute('select product_name,product_code,price from(select product_name,product_code,price,sum(product_quantity),rank()over (order by sum(product_quantity))r from product p join sale s on p.id=s.product_id group by product_id)as ra where r=1')
-        r = cursor.fetchall()
-        l = ['product_name', 'product_code', 'price']
-        print(l[0], l[1], l[2])
-        for i in r:
-            print(i[0], i[1], i[2])
-        logger.info(str(datetime.now()) + " minimum - sold product with product details")
+        try:
+            if cursor.execute('select product_name,product_code,price from(select product_name,product_code,price,sum(product_quantity),rank()over (order by sum(product_quantity))r from product p join sale s on p.id=s.product_id group by product_id)as ra where r=1')==null:
+            raise ValueError('There is no record selected')
+            r = cursor.fetchall()
+            l = ['product_name', 'product_code', 'price']
+            print(l[0], l[1], l[2])
+            for i in r:
+                print(i[0], i[1], i[2])
+            logger.info(str(datetime.now()) + " minimum - sold product with product details")
+        except ValueError as e:
+            print(e)
 
     def q3(self, date1):
-        cursor.execute('select product_name,product_code,sum(price) as amount from product p join sale s on s.product_id=p.id group by bill_date having bill_date=%s',
+        cursor.execute('select product_name,product_code,sum(price*product_quantity) as amount from product p join sale s on s.product_id=p.id group by bill_date having bill_date=%s',
             (date1,))
         r = cursor.fetchall()
         l = ['product_name', 'product_code', 'amount']
@@ -84,6 +92,17 @@ try:
         q.q5(id1, name, code, price)
 except MyError as e:
     print(e)
-
-db.commit()
+try:
+    id1 = input()
+    name = input()
+    code = input()
+    price = int(input())
+    if type(id1)!=int or type(price)!=int:
+        raise TypeError('Id and price should be integer')
+except TypeError as e:
+    print(e)
+try:
+    db.commit(
+except Exception as e:
+        print(e)
 db.close()
